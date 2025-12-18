@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %}Users{% endblock %} {% block content
 %}
 <a
-  href="{{ url_for('create') }}"
+  href="{{url_for('users.create') }}"
   class="bg-green-600 text-white px-4 py-2 rounded"
 >
   Add User
@@ -23,11 +23,15 @@
       <td class="p-2">{{ user.name }}</td>
       <td class="p-2">{{ user.email }}</td>
       <td class="p-2">
-        <a href="{{ url_for('edit', user_id=user.id) }}" class="text-blue-600"
+        <a
+          href="{{ url_for('users.edit', user_id=user.id) }}"
+          class="text-blue-600"
           >Edit</a
         >
         |
-        <a href="{{ url_for('delete', user_id=user.id) }}" class="text-red-600"
+        <a
+          href="{{ url_for('users.delete', user_id=user.id) }}"
+          class="text-red-600"
           >Delete</a
         >
       </td>
