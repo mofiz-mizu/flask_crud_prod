@@ -20,13 +20,12 @@ def create_app():
     #         except Exception:
     #             time.sleep(2)
     with app.app_context():
-    retries = 10
-    while retries > 0:
-        try:
-            db.create_all()
-            break
-        except OperationalError:
-            retries -= 1
-            time.sleep(2)
-
+        retries = 10
+        while retries > 0:
+            try:
+                db.create_all()
+                break
+            except OperationalError:
+                retries -= 1
+                time.sleep(2)
     return app
